@@ -9,7 +9,7 @@ from time import sleep
 
 iface="wlan0"
 
-macs = []
+macs = defaultdict()
 
 
 def run_sniffer():
@@ -17,15 +17,16 @@ def run_sniffer():
 
 
 def handle_packet(packet):
-    print "handling"
     if packet.haslayer(Dot11):
         if packet[Dot11].addr2 is not None:
             #print Counter(tupleslist).most_common()
             # print str(datetime.now()), str(packet[Dot11].addr2), str(packet.type), str(packet.subtype)
-            print packet[Dot11].addr2
+            macs[packet[Dot11].addr2] = datetime.datetime.now()
+            print "handling", macs
 
 
 def run_pusher(frequency, time_window):
+
     while True:
         macs_window = []
         for mac in macs.keys():
@@ -44,10 +45,8 @@ if __name__ == '__main__':
 
     run_sniffer()
 
-    #thread2 = Thread(target = run_pusher, args = (frequency, time_window))
-    #thread2.start()
+    thread2 = Thread(target = run_pusher, args = (frequency, time_window))
+    #hread2.start()
 
     #thread.join()
-    #thread2.join()
-    print "thread finished...exiting"
 
