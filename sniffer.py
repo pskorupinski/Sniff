@@ -6,6 +6,7 @@ from threading import Thread
 from collections import defaultdict
 import datetime
 from time import sleep
+import time
 
 iface="wlan0"
 
@@ -34,6 +35,12 @@ def run_pusher(frequency, time_window):
                 macs_window.append(mac)
 
         print len(macs_window)
+        count = len(macs_window)
+
+        import requests
+        r = requests.post('http://datumize-iot.azurewebsites.net/metrics',
+                      data={u'post': u'metric=count,ts='+unicode(int(time.time()))+u',value='+unicode(count)+u',device=test-pre'})
+        print r.status_code
         sleep(frequency)
 
 
