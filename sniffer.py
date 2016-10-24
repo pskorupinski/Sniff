@@ -9,7 +9,7 @@ from time import sleep
 
 iface="wlan0"
 
-macs = defaultdict()
+macs = []
 
 
 def run_sniffer():
@@ -21,12 +21,11 @@ def handle_packet(packet):
         if packet[Dot11].addr2 is not None:
             #print Counter(tupleslist).most_common()
             # print str(datetime.now()), str(packet[Dot11].addr2), str(packet.type), str(packet.subtype)
-            macs[packet[Dot11].addr2] = datetime.datetime.now()
+            macs.append(packet[Dot11].addr2)
             print "handling", macs
 
 
 def run_pusher(frequency, time_window):
-
     while True:
         macs_window = []
         for mac in macs.keys():
