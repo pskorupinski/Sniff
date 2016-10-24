@@ -38,8 +38,8 @@ def run_pusher(frequency, time_window):
 
 if __name__ == '__main__':
     iface = sys.argv[1]
-    frequency = sys.argv[2]   # seconds
-    time_window = sys.argv[3] # seconds
+    frequency = int(sys.argv[2])   # seconds
+    time_window = int(sys.argv[3]) # seconds
 
     thread = Thread(target = run_sniffer)
     thread.start()
