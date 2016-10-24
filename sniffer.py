@@ -30,10 +30,10 @@ def run_pusher(frequency, time_window):
         macs_window = []
         for mac in macs.keys():
             ts = macs[mac]
-            #if ts < datetime.datetime.now()-datetime.timedelta(seconds=time_window):
-            macs_window.append(mac)
+            if ts > datetime.datetime.now()-datetime.timedelta(seconds=time_window):
+                macs_window.append(mac)
 
-        print macs_window
+        print len(macs_window)
         sleep(frequency)
 
 
