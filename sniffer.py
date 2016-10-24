@@ -28,12 +28,13 @@ def run_pusher(frequency, time_window):
 
     while True:
         macs_window = []
-        for mac,ts in macs.iteritems():
+        for mac in macs.keys():
+            ts = macs[mac]
             if ts < datetime.datetime.now()-datetime.timedelta(seconds=time_window):
                 macs_window.append(mac)
-            print macs_window
 
-            sleep(frequency)
+        print macs_window
+        sleep(frequency)
 
 
 if __name__ == '__main__':
