@@ -43,13 +43,12 @@ if __name__ == '__main__':
     frequency = int(sys.argv[2])   # seconds
     time_window = int(sys.argv[3]) # seconds
 
-    thread = Thread(target = run_sniffer)
-    thread.start()
+    run_sniffer()
 
-    thread2 = Thread(target = run_pusher, args = (frequency, time_window))
-    thread2.start()
+    #thread2 = Thread(target = run_pusher, args = (frequency, time_window))
+    #thread2.start()
 
-    thread.join()
-    thread2.join()
+    #thread.join()
+    #thread2.join()
     print "thread finished...exiting"
 
