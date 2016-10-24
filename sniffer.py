@@ -24,9 +24,7 @@ def handle_packet(packet):
             macs[packet[Dot11].addr2] = datetime.datetime.now()
 
 
-def run_pusher(args):
-    frequency = args[0]
-    time_window = args[1]
+def run_pusher(frequency, time_window):
 
     while True:
         macs_window = []
