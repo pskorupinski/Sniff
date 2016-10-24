@@ -17,6 +17,7 @@ def run_sniffer():
 
 
 def handle_packet(packet):
+    print "handling"
     if packet.haslayer(Dot11):
         if packet[Dot11].addr2 is not None:
             #print Counter(tupleslist).most_common()
