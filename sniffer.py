@@ -42,10 +42,10 @@ if __name__ == '__main__':
     frequency = int(sys.argv[2])   # seconds
     time_window = int(sys.argv[3]) # seconds
 
-    run_sniffer()
-
     thread2 = Thread(target = run_pusher, args = (frequency, time_window))
     thread2.start()
+
+    run_sniffer()
 
     #thread.join()
 
