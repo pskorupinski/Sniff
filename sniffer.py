@@ -39,7 +39,7 @@ def run_pusher(frequency, time_window):
 
         import requests
         r = requests.post('http://datumize-iot.azurewebsites.net/metrics',
-                      data=u'metric=count,ts='+unicode(int(time.time()))+u',value='+unicode(count)+u',device=test-pre')
+                          data = {'metric':'count', 'ts':long(time.time()), 'value':str(count), 'device':'test-pre'})
         print r.status_code
         sleep(frequency)
 
