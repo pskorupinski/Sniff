@@ -21,8 +21,7 @@ def handle_packet(packet):
         if packet[Dot11].addr2 is not None:
             #print Counter(tupleslist).most_common()
             # print str(datetime.now()), str(packet[Dot11].addr2), str(packet.type), str(packet.subtype)
-            macs.append(packet[Dot11].addr2)
-            print "handling", macs
+            print packet[Dot11].addr2
 
 
 def run_pusher(frequency, time_window):
