@@ -12,7 +12,7 @@ iface="wlan0"
 macs = defaultdict()
 
 
-def run_sniffer(arg):
+def run_sniffer():
     sniff(iface=iface, prn=handle_packet)
 
 
