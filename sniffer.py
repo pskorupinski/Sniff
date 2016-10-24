@@ -45,7 +45,7 @@ if __name__ == '__main__':
     run_sniffer()
 
     thread2 = Thread(target = run_pusher, args = (frequency, time_window))
-    #hread2.start()
+    thread2.start()
 
     #thread.join()
 
