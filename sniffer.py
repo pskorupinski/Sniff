@@ -22,6 +22,7 @@ def handle_packet(packet):
             #print Counter(tupleslist).most_common()
             # print str(datetime.now()), str(packet[Dot11].addr2), str(packet.type), str(packet.subtype)
             macs[packet[Dot11].addr2] = datetime.datetime.now()
+            print "handling", macs
 
 
 def run_pusher(frequency, time_window):
