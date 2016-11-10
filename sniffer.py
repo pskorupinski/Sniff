@@ -14,7 +14,6 @@ macs = defaultdict()
 
 
 def run_sniffer():
-    '''X '''
     sniff(iface=iface, prn=handle_packet)
 
 
