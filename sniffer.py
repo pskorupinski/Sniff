@@ -14,6 +14,7 @@ macs = defaultdict()
 
 
 def run_sniffer():
+    ''' This is the doc'''
     sniff(iface=iface, prn=handle_packet)
 
 
